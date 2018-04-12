@@ -28,7 +28,7 @@ class DataManager(object):
         self.val_data = self.data[idx[:val_num]]
         self.val_label = self.label[idx[:val_num]]
         self.train_data = self.data[idx[val_num:]]
-        self.train_label = self.label[idx[:val_num]]
+        self.train_label = self.label[idx[val_num:]]
 
 
     def next_train_batch(self, batch_size=128, replace=False):
