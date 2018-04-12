@@ -1,0 +1,9 @@
+# The dataset
+/data/*
+!/data/README.md
+
+# Generated file
+*.pyc
+
+# File for test
+test.py
