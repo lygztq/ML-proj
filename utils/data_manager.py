@@ -1,5 +1,5 @@
 import numpy as np
-from load_data import read_file
+from load_data import load_data
 
 
 class DataManager(object):
@@ -13,7 +13,7 @@ class DataManager(object):
         """
         self.path = dataset_path
         self.ratio = ratio
-        self.data, self.label = read_file(self.path)
+        self.data, self.label = load_data(self.path)
         self.num_data = self.data.shape[0]
         self.train_val_split()
         
@@ -49,11 +49,11 @@ class DataManager(object):
         mask = np.random.choice(range(self.val_data.shape[0]), batch_size, replace=replace)
         return self.val_data[mask], self.val_label[mask]        
 
-# test
-# mng = DataManager('../data/AGO1/train')
-# next_b, next_l = mng.next_train_batch()
-# print next_b.shape, next_l.shape
-# print next_b[0], '\t', next_l[0]
+#test
+mng = DataManager('../data')
+next_b, next_l = mng.next_train_batch()
+print next_b.shape, next_l.shape
+print next_b[0], '\t', next_l[0]
 
 # print mng.train_data.shape
 # print mng.val_data.shape

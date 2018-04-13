@@ -5,5 +5,8 @@
 # Generated file
 *.pyc
 
+# Dataset file
+*.npy
+
 # File for test
 test.py
