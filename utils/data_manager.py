@@ -50,10 +50,10 @@ class DataManager(object):
         return self.val_data[mask], self.val_label[mask]        
 
 #test
-mng = DataManager('../data')
-next_b, next_l = mng.next_train_batch()
-print next_b.shape, next_l.shape
-print next_b[0], '\t', next_l[0]
+# mng = DataManager('../data')
+# next_b, next_l = mng.next_train_batch()
+# print next_b.shape, next_l.shape
+# print next_b[0], '\t', next_l[0]
 
 # print mng.train_data.shape
 # print mng.val_data.shape
