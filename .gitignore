@@ -1,4 +1,5 @@
 # The dataset
+*.zip
 /data/*
 !/data/README.md
 
