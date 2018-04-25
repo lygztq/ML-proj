@@ -37,7 +37,7 @@ class DataManager(object):
             :param batch_size:  The size of a batch of data
             :param replace:     If Ture, no duplicated data
         """
-        mask = np.random.choice(range(self.train_data.shape[0]), batch_size, replace=replace)
+        mask = np.random.choice(self.train_data.shape[0], batch_size, replace=replace)
         return self.train_data, self.train_label
 
     def next_val_batch(self, batch_size=32, replace=False):
@@ -46,7 +46,7 @@ class DataManager(object):
             :param batch_size:  The size of a batch of data
             :param replace:     If Ture, no duplicated data
         """
-        mask = np.random.choice(range(self.val_data.shape[0]), batch_size, replace=replace)
+        mask = np.random.choice(self.val_data.shape[0], batch_size, replace=replace)
         return self.val_data[mask], self.val_label[mask]        
 
 #test
