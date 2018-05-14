@@ -45,7 +45,7 @@ class DataManager(object):
             :param batch_size:  The size of a batch of data
             :param replace:     If Ture, no duplicated data
         """
-        func_name = 'next_' + dataset + '_batch'
+        func_name = '_next_' + dataset + '_batch'
         if not hasattr(self, func_name):
             raise ValueError('Invalid dataset name: %s' % dataset)
         func = getattr(self, func_name)
@@ -78,15 +78,11 @@ class DataManager(object):
         mask = np.random.choice(self.dev_data.shape[0], batch_size, replace=replace)
         return self.dev_data[mask], self.dev_label[mask]    
 
-## test
-# mng = DataManager('../data')
-# next_b, next_l = mng.next_train_batch()
-# print next_b.shape, next_l.shape
-# print next_b[0], '\t', next_l[0]
+# test
+mng = DataManager('../data')
 
-# next_b, next_l = mng.next_batch('train')
-# print next_b.shape, next_l.shape
-# print next_b[0], '\t', next_l[0]
+next_b, next_l = mng.next_batch('train')
+print next_b.shape, next_l.shape
 
 
 # print mng.train_data.shape
