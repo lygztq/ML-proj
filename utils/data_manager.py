@@ -51,16 +51,16 @@ class DataManager(object):
         func = getattr(self, func_name)
         return func(batch_size, replace)
 
-    def next_train_batch(self, batch_size=128, replace=False):
+    def _next_train_batch(self, batch_size=128, replace=False):
         """
         Get the next batch of training data
             :param batch_size:  The size of a batch of data
             :param replace:     If Ture, no duplicated data
         """
         mask = np.random.choice(self.train_data.shape[0], batch_size, replace=replace)
-        return self.train_data, self.train_label
+        return self.train_data[mask], self.train_label[mask]
 
-    def next_val_batch(self, batch_size=32, replace=False):
+    def _next_val_batch(self, batch_size=32, replace=False):
         """
         Get the next batch of validation data
             :param batch_size:  The size of a batch of data
@@ -69,7 +69,7 @@ class DataManager(object):
         mask = np.random.choice(self.val_data.shape[0], batch_size, replace=replace)
         return self.val_data[mask], self.val_label[mask]     
 
-    def next_dev_batch(self, batch_size=32, replace=False):
+    def _next_dev_batch(self, batch_size=32, replace=False):
         """
         Get the next batch of development data
             :param batch_size:  The size of a batch of data
